@@ -31,6 +31,8 @@ const SearchQuery = ({
             placeholder="Search Github"
             onChange={(e) => setQuery(e.target.value.toLowerCase())}
           />
+          <input type="text" name="page" defaultValue="1" hidden />
+          <input type="text" name="per_page" defaultValue="20" hidden />
           <Button size="sm" type="submit">
             Search
           </Button>

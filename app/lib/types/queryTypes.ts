@@ -1,3 +1,5 @@
+import type { Dispatch, SetStateAction } from "react";
+
 export interface User {
   login: string;
   id: number;
@@ -23,6 +25,9 @@ export interface User {
 export interface SearchPayload {
   total_count: number;
   incomplete_results?: boolean;
+  page?: number;
+  setPage?: Dispatch<SetStateAction<string>>;
+  per_page?: number;
   items: User[];
 }
 
