@@ -2,4 +2,5 @@
 [[ "$(uname -a)" = *"MINGW64"* ]] && exit 0
 . "$(dirname "$0")/_/husky.sh"
 
+# shellcheck disable=SC2015
 exec < /dev/tty && yarn cz --hook || true

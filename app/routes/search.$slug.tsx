@@ -11,6 +11,7 @@ import {
 import type { LoaderFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
+import moment from "moment";
 import { BiBuildings } from "react-icons/bi";
 import { BsLink45Deg } from "react-icons/bs";
 import { FaTwitter } from "react-icons/fa";
@@ -19,8 +20,8 @@ import { GoRepo, GoOctoface } from "react-icons/go";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { MdDateRange } from "react-icons/md";
 import { RiUser6Fill } from "react-icons/ri";
-import moment from "moment";
-import { UserInfo } from "~/lib/types/queryTypes";
+
+import type { UserInfo } from "~/lib/types/queryTypes";
 
 export const loader: LoaderFunction = async ({ params }): Promise<Response> => {
   const user = params.slug;

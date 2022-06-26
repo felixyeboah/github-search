@@ -14,7 +14,6 @@ import Providers from "./Providers";
 import Layout from "~/lib/layout";
 import ClientStyleContext from "~/lib/styles/context.client";
 import ServerStyleContext from "~/lib/styles/context.server";
-
 import customTheme from "~/lib/styles/theme";
 
 type DocumentProps = {

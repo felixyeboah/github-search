@@ -27,7 +27,13 @@ export const loader: LoaderFunction = async ({
 }): Promise<Response> => {
   const url = new URL(request.url);
   const term = url.searchParams.get("q");
-  const result = await searchGithubUser(term);
+  const page = url.searchParams.get("page");
+  const perPage = url.searchParams.get("per_page");
+  const result = await searchGithubUser({
+    query: term,
+    page: Number(page),
+    per_page: Number(perPage),
+  });
   return json({ result });
 };
 
@@ -43,16 +49,28 @@ export default function Home() {
   const [queryValue, setQuery] = useState<string>(() => {
     return searchParams.get("q") ?? "";
   });
+  const [page, setPage] = useState<string>(() => {
+    return searchParams.get("page") ?? "";
+  });
+
   const query = queryValue.trim();
 
+  const perPage = searchParams.get("per_page");
+
   useUpdateQueryStringValueWithoutNavigation("q", query);
+  useUpdateQueryStringValueWithoutNavigation("page", page);
 
   return (
     <Stack spacing="3rem">
       <SearchQuery query={query} setQuery={setQuery} />
       <Loading transition={transition} />
       {queryValue === searchParams.get("q") && data && (
-        <SearchResults {...data.result} />
+        <SearchResults
+          page={Number(page)}
+          per_page={Number(perPage)}
+          setPage={setPage}
+          {...data.result}
+        />
       )}
     </Stack>
   );

@@ -1,4 +1,5 @@
 import { Heading, Stack } from "@chakra-ui/react";
+
 import Document from "./Document";
 
 // https://remix.run/docs/en/v1/api/conventions#errorboundary

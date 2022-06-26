@@ -1,4 +1,4 @@
-# mixtarter-chakra
+# Github Search
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https://github.com/sozonome/mixtarter-chakra)
 
